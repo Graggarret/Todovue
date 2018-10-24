@@ -5,14 +5,14 @@
       <v-flex xs12>
         <v-flex xs12 sm6 d-flex>
           <v-select
-            :items="['all','on','off']"
+            :items="['Все задачи','Выполненные','Не выполненные']"
             v-model="choose"
             label="visible"
           ></v-select>
         </v-flex>
         <v-data-table
           :headers="getHead()"
-          :items=" choose === 'all' ? getTasks(): choose === 'on' ? doneTasks() : undoneTasks()"
+          :items=" choose === 'Все задачи' ? getTasks(): choose === 'Выполненные' ? doneTasks() : undoneTasks()"
           class="elevation-1"
         >
           <template slot-scope="props">
@@ -23,11 +23,11 @@
             </v-tooltip>
           </template>
           <template slot="items" slot-scope="props" >
-            <td>{{ props.item.done }}</td>
+            <td>{{ props.item.done ? 'Готово' : 'Не готово'}}</td>
             <td class="text-xs-right">{{ props.item.title }}</td>
             <td class="text-xs-right">{{ props.item.dateTime }}</td>
-            <td class="text-xs-center"><v-btn @click="changeActiveTask(props.item.id)" :to="'/task/' + props.item.id" class="primary">Show</v-btn></td>
-            <td class="text-xs-center"><v-btn @click="deleteTask(props.item.id)" class="error">Delete</v-btn></td>
+            <td class="text-xs-center"><v-btn @click="changeActiveTask(props.item.id)" :to="'/task/' + props.item.id" class="primary">Показать</v-btn></td>
+            <td class="text-xs-center"><v-btn @click="deleteTask(props.item.id)" class="error">Удалить</v-btn></td>
           </template>
         </v-data-table>
       </v-flex>
@@ -40,7 +40,7 @@
   export default {
     data () {
       return {
-        choose: 'all',
+        choose: 'Все задачи',
         activeTask: 0
       }
     },

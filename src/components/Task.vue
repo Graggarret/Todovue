@@ -13,7 +13,11 @@
             <p>{{ taskId.description }}</p>
           </v-card-text>
           <v-card-actions>
-            <v-btn class="success" @click.native="taskDone">{{ taskId.done ? 'Undone' : 'Done' }}</v-btn>
+            <v-btn
+              class="success"
+              @click.native="taskDone"
+            >{{ taskId.done ? 'Завершено' : 'Завершить' }}
+            </v-btn>
             <v-spacer/>
             <v-dialog v-model="dialog" persistent max-width="500px">
               <v-btn slot="activator" color="primary" dark>Редактировать</v-btn>
@@ -101,19 +105,19 @@
 
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="secondary" @click.native="dialog = false">Cancel</v-btn>
+                    <v-btn color="secondary" @click.native="dialog = false">Отмена</v-btn>
                     <v-btn
                       color="primary"
                       :disabled="!valid"
                       @click.native="onChangeTask;dialog = false"
-                    >Save</v-btn>
+                    >Сохранить</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-dialog>
             <v-btn
               class="info"
               :to="'/tasks'"
-            >Exit</v-btn>
+            >Выход</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

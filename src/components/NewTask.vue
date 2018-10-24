@@ -43,7 +43,7 @@
                     <v-text-field
                       slot="activator"
                       v-model="date"
-                      label="Choose a date"
+                      label="Выберите дату"
                       prepend-icon="event"
                       :rules="dateRules"
                       readonly
@@ -71,7 +71,7 @@
                     <v-text-field
                       slot="activator"
                       v-model="time"
-                      label="Choose a time"
+                      label="Выберите время"
                       prepend-icon="access_time"
                       :rules="timeRules"
                       readonly
@@ -96,13 +96,13 @@
             <v-btn
               color="secondary"
               :to="'/tasks'"
-            >Cancel</v-btn>
+            >Отмена</v-btn>
             <v-btn
               color="primary"
               @click="onSubmit"
               :disabled="!valid"
               :to="'/tasks'"
-            >Create</v-btn>
+            >Создать</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

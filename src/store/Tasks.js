@@ -39,29 +39,29 @@ export default {
     ],
     headers: [
       {
-        text: 'Condition',
+        text: 'Состояние',
         align: 'left',
         sortable: false,
         value: 'done'
       },
       {
-        text: 'Title',
+        text: 'Заголовок',
         value: 'title',
         align: 'center'
       },
       {
-        text: 'Date',
+        text: 'Дата',
         value: 'dateTime',
         align: 'center'
       },
       {
-        text: 'Show',
+        text: 'Информация',
         value: 'show',
         sortable: false,
         align: 'center'
       },
       {
-        text: 'Delete',
+        text: 'Удаление',
         value: 'delete',
         sortable: false,
         align: 'center'
@@ -109,8 +109,8 @@ export default {
       let task = state.tasks.map((item, index) => {
         if (item.id == payload.id) {
           num = index
-          return item
         }
+        return item
       })
       console.log(num)
       task.splice(num, 1)
